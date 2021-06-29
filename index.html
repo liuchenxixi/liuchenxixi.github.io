@@ -71,6 +71,145 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Burpsuite的使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/29/Burpsuite%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-06-29T10:46:36.000Z" itemprop="datePublished">2021-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/29/Burpsuite%E7%9A%84%E4%BD%BF%E7%94%A8/">Burpsuite的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><em><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nA411h7C9?t=758">Burpsuite使用教程_哔哩哔哩_bilibili</a></strong></em> notes:</p>
+<h4 id="1-安装与配置"><a href="#1-安装与配置" class="headerlink" title="1.安装与配置"></a>1.安装与配置</h4><ol>
+<li><p>字体：User options–&gt;display–&gt;字体样式和字号</p>
+</li>
+<li><p>配置浏览器代理：![屏幕截图 2021-06-29 185204](C:\Users\33371\blog\source_posts\Burpsuite的使用\屏幕截图 2021-06-29 185204.png)</p>
+<p>端口我按照视频上讲的 设置成了8080，可是浏览器却发生了异常，现在我还是勾选的“自动检测设置”选项</p>
+</li>
+<li><p>截断HTTP请求（？？？）</p>
+<p>①开启截断：</p>
+</li>
+<li><p>在浏览器中安装Burpsuite CA证书</p>
+<p>（解决证书错误问题）</p>
+<p>①使用系统管理员权限打开浏览器</p>
+<p>②在浏览器中输入 <a target="_blank" rel="noopener" href="http://burp/">http://burp/</a></p>
+<p>③点击CA Certificate 安装证书</p>
+<p>选择证书存储：受信任的根据证书颁发机构</p>
+</li>
+</ol>
+<h4 id="2-Proxy模块设置"><a href="#2-Proxy模块设置" class="headerlink" title="2.Proxy模块设置"></a>2.Proxy模块设置</h4><h4 id="lt-1-gt-Intercept："><a href="#lt-1-gt-Intercept：" class="headerlink" title="&lt;1&gt;Intercept："></a>&lt;1&gt;<em>Intercept：</em></h4><p>Forword:将截断的HTTP或HTTPS请求发送到服务器</p>
+<p>Drop：将……丢弃</p>
+<p>Intercept is on/off:开启或关闭代理截断功能</p>
+<p>Action：：将……发送到其他模块或做其他处理</p>
+<p>（对Intercept进行Raw  Hex Params Header 切换查看不同的数据格式）</p>
+<h4 id="lt-2-gt-HTTP-history"><a href="#lt-2-gt-HTTP-history" class="headerlink" title="&lt;2&gt;HTTP history"></a>&lt;2&gt;<em>HTTP history</em></h4><p>查看提交过的HTTP请求。WebSockets history与其功能类似</p>
+<p>add to scope 添加作用域</p>
+<p>spider from here</p>
+<p>show response in a browser在浏览器中显示其响应</p>
+<p>***Filter可以过滤显示某些HTTP请求，点击Filter即可打开；对于指定url可以选中右键点击，执行其他操作（上面三个短语那样）</p>
+<h4 id="lt-3-gt-Options"><a href="#lt-3-gt-Options" class="headerlink" title="&lt;3&gt;Options:"></a>&lt;3&gt;Options:</h4><ol>
+<li>代理监听设置</li>
+<li>截断客户端请求</li>
+<li>截断服务器响应</li>
+<li>截断WebSocket通信</li>
+<li>服务端响应修改（绕过JS验证文件上传）</li>
+<li>匹配与替换HTTP消息中的内容</li>
+<li>通过SSl连接Web服务器配置</li>
+<li>其他配置选项</li>
+</ol>
+<h4 id="lt-4-gt-Proxy-Listener"><a href="#lt-4-gt-Proxy-Listener" class="headerlink" title="&lt;4&gt;Proxy Listener"></a>&lt;4&gt;Proxy Listener</h4><p>截断数据流量，比如设置监听端口等</p>
+<h4 id="lt-5-gt-Intercept-Client-Requests"><a href="#lt-5-gt-Intercept-Client-Requests" class="headerlink" title="&lt;5&gt;Intercept Client Requests"></a>&lt;5&gt;Intercept Client Requests</h4><p>截断符合条件的HTTP请求</p>
+<h4 id="lt-6-gt-设置截断Websocket-通信以及修改Response的内容"><a href="#lt-6-gt-设置截断Websocket-通信以及修改Response的内容" class="headerlink" title="&lt;6&gt;设置截断Websocket 通信以及修改Response的内容"></a>&lt;6&gt;设置截断Websocket 通信以及修改Response的内容</h4><p>可以利用Remove all JavaScript绕过文件上传中的JS验证（这部分代码在后续操作中不会被执行)</p>
+<h4 id="lt-7-gt-匹配及修改HTTP消息"><a href="#lt-7-gt-匹配及修改HTTP消息" class="headerlink" title="&lt;7&gt;匹配及修改HTTP消息"></a>&lt;7&gt;匹配及修改HTTP消息</h4><p>Proxy–&gt;Options–&gt;Match and Replace–&gt;add/……–&gt;Add match/replace rule……</p>
+<h4 id="lt-8-gt-设置使用SSL连接到Web服务器"><a href="#lt-8-gt-设置使用SSL连接到Web服务器" class="headerlink" title="&lt;8&gt;设置使用SSL连接到Web服务器"></a>&lt;8&gt;设置使用SSL连接到Web服务器</h4><p>设置使用Burp直接通过SSL直连到目标服务器</p>
+<p>Proxy–&gt;Options–&gt;SSL Pass Though–&gt;……</p>
+<h4 id="lt-9-gt-杂项设置"><a href="#lt-9-gt-杂项设置" class="headerlink" title="&lt;9&gt;杂项设置"></a>&lt;9&gt;杂项设置</h4><p>通过杂项设置对应的请求头 等信息</p>
+<p><em><strong>Miscellaneous</strong></em></p>
+<h4 id="3-抓取手机app流量"><a href="#3-抓取手机app流量" class="headerlink" title="3.抓取手机app流量"></a>3.抓取手机app流量</h4><p><em><strong>WebApp的通信仍然使用HTTP协议进行对应的通信。可以通过Burp设置代理，然后手机设置网络代理，通过Burp截断手机App流量</strong></em></p>
+<p>Add a new proxy listener–&gt;binding–&gt;Bind to address–&gt;all interfaces</p>
+<p>设置截断所有网卡的流量，那么局域网中所有的主机都可以通过该代理进行网络访问</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/29/Burpsuite%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ckqi6hsx50000zcuue08n837b" data-title="Burpsuite的使用" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql注入之布尔盲注" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/21/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-06-21T08:29:30.000Z" itemprop="datePublished">2021-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/21/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/">sql注入之布尔盲注.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这是对上一篇博客的补充。这次涉及了布尔盲注</p>
+</blockquote>
+<h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p><em>练习了墨者学院的题目</em></p>
+<p><img src="/.com//Users\33371\blog\source_posts\sql注入之布尔盲注-md\image-20210624195032703.png" alt="image-20210624195032703"></p>
+<p>输入id=1’ and 1=1后，返回空界面；</p>
+<p>输入id=1 and 1=1 后返回正常界面；</p>
+<p><em><strong>判断数据库名字的长度</strong></em></p>
+<p>输入id=1 length(database())=1,返回了空界面，说明不是空白页</p>
+<p>挨个试后确定长度为10，此时返回的还是停机维护通知的呢个界面</p>
+<p><em><strong>断数据库的名字</strong></em></p>
+<p>输入id=1 and substr(database(),1,1)=’a’ –+当输到’s’时返回正常界面，说明名字的第一个字母是’s’,以此类推，得出名字为stormgroup。</p>
+<p>（这样子一个个地试太难受啦！用sqlmap是很简便的方法，我还不是很熟练hhh，待今再后磨练！）</p>
+<p>或者<em><strong>通过bp软件对库名进行爆破</strong></em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/21/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/" data-id="ckqi6hsxd0001zcuuc2zh6rjf" data-title="sql注入之布尔盲注.md" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ctf升级之路——sql注入方法总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/06/18/ctf%E5%8D%87%E7%BA%A7%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94sql%E6%B3%A8%E5%85%A5%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="article-date">
@@ -315,6 +454,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/06/29/Burpsuite%E7%9A%84%E4%BD%BF%E7%94%A8/">Burpsuite的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/21/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/">sql注入之布尔盲注.md</a>
+          </li>
         
           <li>
             <a href="/2021/06/18/ctf%E5%8D%87%E7%BA%A7%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94sql%E6%B3%A8%E5%85%A5%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">ctf升级之路——SQL注入方法总结</a>
