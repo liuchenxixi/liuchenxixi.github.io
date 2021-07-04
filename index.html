@@ -152,6 +152,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python学习：输出函数、标识符与变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/03/python%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E5%8F%98%E9%87%8F/">python学习：输出函数、标识符与变量</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/03/python%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E5%8F%98%E9%87%8F/" class="archive-article-date">
+  	<time datetime="2021-07-03T07:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>11</p>
+<h4 id="输出函数print"><a href="#输出函数print" class="headerlink" title="==输出函数print()=="></a>==输出函数print()==</h4><p><strong>可输出数字，字符串，含运算符的表达式</strong></p>
+<ol>
+<li>#输出数字               print(520)</li>
+<li>#输出字符串            print(‘helloworld’) (<em>单、双、三引号皆可</em>)</li>
+<li>#输出含有运算符的表达式        print(2+3)</li>
+</ol>
+<p><strong>可将内容输出至显示器、文件</strong></p>
+<ol>
+<li>#输出在控制台上，即运行后的显示</li>
+<li>#输出在文件中：open(‘D:/text.txt’,’a+’)   (<em>无此文件时创建，否则追加</em>)    print(‘helloworld’,file=fp)                      fp.close()</li>
+</ol>
+<p><strong>输出形式有换行、不换行</strong></p>
+<ol>
+<li><p>#默认换行输出</p>
+</li>
+<li><p>#不进行换行输出，输出内容在一行当中：print(‘hello’,’world’,’python’)  [即 用逗号进行分隔]</p>
+<h4 id="转义字符和原字符"><a href="#转义字符和原字符" class="headerlink" title="==转义字符和原字符=="></a>==转义字符和原字符==</h4><p><del>反斜杠、单引号、双引号……</del></p>
+</li>
+</ol>
+<p><del>换行：\n  回车：\r   水平制表符：\t   退格：\b    <strong>newline  return  table   backspace</strong></del></p>
+<h5 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a><em><strong>转义字符</strong></em></h5><p>print(‘hello\nworld’):~</p>
+<p>print(‘hello\tworld’):两个单词之间有3个空格:因为字母o占用了第二个tab里的第一个位置</p>
+<p>print(‘helloooo\tworld’):两个单词间四个空格</p>
+<p>print(‘hello\rworld’):回车，后面的world将前面的hello覆盖掉了</p>
+<p>print(‘hello\bworld’):退一个格，将o给退没了</p>
+<p>print(‘http:\\<a target="_blank" rel="noopener" href="http://www.baidu.com&/#39;):%E5%86%99%E4%B8%A4%E4%B8%AA%E6%96%9C%E7%BA%BF%EF%BC%8C%E6%9C%80%E7%BB%88%E4%BC%9A%E4%BB%A5%E4%B8%80%E4%B8%AA%E6%96%9C%E7%BA%BF%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BE%93%E5%87%BA,%E6%89%80%E4%BB%A5%E4%B9%A6%E5%86%99%E6%97%B6%E4%BC%9A%E5%86%99%E5%9B%9B%E4%B8%AA%E6%96%9C%E7%BA%BF">www.baidu.com&#39;):写两个斜线，最终会以一个斜线的形式输出,所以书写时会写四个斜线</a></p>
+<h5 id="原字符"><a href="#原字符" class="headerlink" title="原字符"></a><em><strong>原字符</strong></em></h5><p>#原字符，不希望字符串中的转义字符起作用，在字符串之前加上r 或R</p>
+<p><code>！！！注意：原字符串的最后一个字符不能是反斜线，否则会报错</code></p>
+<h4 id="二级制和字符编码"><a href="#二级制和字符编码" class="headerlink" title="==二级制和字符编码=="></a>==二级制和字符编码==</h4><p>逻辑电路的开关用1和0来表示</p>
+<p>8 bit = 1 byte     1024 byte = 1 kB(千字节)    MB GB TB  千 兆 吉 太……</p>
+<p>ASCII码表</p>
+<p>F12—&gt;计算器—&gt;程序员型—&gt;进制转换</p>
+<p>ASCII—&gt;其他国家字符编码—&gt;Unicode——&gt;UTF-8</p>
+<p>print(chr(0b100111001011000))  ——&gt;乘</p>
+<p>二进制数前加0b</p>
+<p>print(ord(‘乘’))——&gt;20056——&gt;100111001011000</p>
+<p>不管中文还是英文，在计算机中都叫做字符，一个字符对应一个整数，这个整数可用2、四、八、十六进制表示，但最后到计算机当中都会转化为二进制的表示方式</p>
+<h4 id="标识符和保留字"><a href="#标识符和保留字" class="headerlink" title="==标识符和保留字=="></a>==标识符和保留字==</h4><p><strong>保留字</strong>：一些单词被赋予特定的含义，这些单词在给任何操作对象起名时都不能使用</p>
+<p><strong>借助python查看所有保留字</strong></p>
+<p><strong>import keyword</strong></p>
+<p>**print(keyword.kwlist)**——&gt;False ,None ,True, and ,as ,assert, async, await ,break ,class, comtinue ,def ,del, elif,else ,except, finally, for, form ,global, if, import, in ,is ,lambda,nonlocal , not, all, pass, return, try, raise, while, with, yeild</p>
+<p><strong>标识符：</strong>给变量，函数，类，模块所起的名字</p>
+<p><del>规则：1.数字、字母、下划线   2.不能以数字开头    3.不能是保留字  4.严格区分大小写</del></p>
+<h4 id="变量的定义和使用"><a href="#变量的定义和使用" class="headerlink" title="==变量的定义和使用=="></a>==变量的定义和使用==</h4><p>变量由三部分组成：</p>
+<ol>
+<li>标识：表示对象所存储的内存地址，使用内置函数id(obj)来获取</li>
+<li>类型：……数据类型，……type(obj)</li>
+<li>值：表示对象所存储的具体数据，print(obj)</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/03/python%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E5%8F%98%E9%87%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-基础入门——概念名词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
